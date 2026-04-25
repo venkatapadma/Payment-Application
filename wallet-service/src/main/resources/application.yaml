@@ -9,9 +9,9 @@ spring:
     url: jdbc:h2:mem:walletDB
     username: sa
     password:
-#    url: jdbc:mysql://localhost:3306/rewardDB
-#    username: root
-#    password: password123
+  #    url: jdbc:mysql://localhost:3306/rewardDB
+  #    username: root
+  #    password: password123
   h2:
     console:
       enabled: true

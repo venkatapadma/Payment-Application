@@ -1,4 +1,4 @@
-package com.paypal.wallet_service.Controller;
+package com.paypal.wallet_service.controller;
 
 import com.paypal.wallet_service.dto.*;
 import com.paypal.wallet_service.service.WalletService;

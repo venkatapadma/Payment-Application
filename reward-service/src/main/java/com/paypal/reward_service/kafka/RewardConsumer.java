@@ -1,8 +1,5 @@
 package com.paypal.reward_service.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.paypal.reward_service.dto.TransactionEvent;
 import com.paypal.reward_service.entity.Reward;
 import com.paypal.reward_service.repository.RewardRepository;
@@ -18,13 +15,8 @@ public class RewardConsumer {
 
     private final RewardRepository rewardRepository;
 
-    private final ObjectMapper objectMapper;
-
-    public RewardConsumer(RewardRepository rewardRepository, ObjectMapper objectMapper) {
+    public RewardConsumer(RewardRepository rewardRepository) {
         this.rewardRepository = rewardRepository;
-        this.objectMapper = objectMapper;
-        this.objectMapper.registerModule(new JavaTimeModule());
-        this.objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 
     @KafkaListener(topics = "txn-initiated", groupId = "reward-group")

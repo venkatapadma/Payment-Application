@@ -17,9 +17,9 @@ spring:
     url: jdbc:h2:mem:transactionDB
     username: sa
     password:
-#    url: jdbc:mysql://localhost:3306/transactionDB
-#    username: root
-#    password: password123
+  #    url: jdbc:mysql://localhost:3306/transactionDB
+  #    username: root
+  #    password: password123
 
   h2:
     console:

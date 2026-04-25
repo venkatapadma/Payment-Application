@@ -1,6 +1,5 @@
 package com.paypal.transaction_service.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paypal.transaction_service.dto.TransactionResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;

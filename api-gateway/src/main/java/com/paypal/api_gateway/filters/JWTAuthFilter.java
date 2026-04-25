@@ -28,6 +28,7 @@ public class JWTAuthFilter implements GlobalFilter, Ordered {
             "/v3/api-docs"
     );
     private final JWTUtil jwtUtil;
+
     public JWTAuthFilter(JWTUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
         log.info("JWTAuthFilter has been initialized");

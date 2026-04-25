@@ -6,13 +6,13 @@ spring:
     name: reward-service
 
   datasource:
-        url: jdbc:h2:mem:rewardDB
-        driver-class-name: org.h2.Driver
-        username: sa
-        password:
-#    url: jdbc:mysql://localhost:3306/rewardDB
-#    username: root
-#    password: password123
+    url: jdbc:h2:mem:rewardDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  #    url: jdbc:mysql://localhost:3306/rewardDB
+  #    username: root
+  #    password: password123
 
   h2:
     console:

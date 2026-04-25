@@ -44,7 +44,7 @@ public class WalletServiceImpl implements WalletService {
         wallet.setCurrency(currency);
 
         Wallet saved = walletRepository.save(wallet);
-        log.info("Wallet created for user" + userId);
+        log.info("Wallet created for user: {}", userId);
         return WalletResponse.from(saved);
     }
 

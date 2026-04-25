@@ -18,7 +18,7 @@ spring:
     gateway:
       server:
         webflux:
-  #        user microservice
+          #        user microservice
           routes:
             - id: user-service
               uri: http://localhost:8081
@@ -32,7 +32,7 @@ spring:
                     redis-rate-limiter.burstCapacity: 20
                     redis-rate-limiter.requestedTokens: 1
 
-      #        Transaction microservice
+            #        Transaction microservice
             - id: transaction-service
               uri: http://localhost:8082
               predicates:
@@ -58,7 +58,7 @@ spring:
                     redis-rate-limiter.burstCapacity: 20
                     redis-rate-limiter-requestedToken: 1
 
-      #        Reward microservice
+            #        Reward microservice
             - id: reward-service
               uri: http://localhost:8084
               predicates:
@@ -71,7 +71,7 @@ spring:
                     redis-rate-limiter.burstCapacity: 20
                     redis-rate-limiter-requestedToken: 1
 
-#            Wallet microservice
+            #            Wallet microservice
             - id: wallet-service
               uri: http://localhost:8085
               predicates:

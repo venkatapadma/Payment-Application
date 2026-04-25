@@ -1,6 +1,5 @@
 package com.paypal.notification_service.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paypal.notification_service.dto.TransactionEvent;
 import com.paypal.notification_service.entity.Notification;
 import com.paypal.notification_service.repository.NotificationRepository;
@@ -16,11 +15,8 @@ public class NotificationConsumer {
 
     private final NotificationRepository notificationRepository;
 
-    private final ObjectMapper objectMapper;
-
-    public NotificationConsumer(NotificationRepository notificationRepository, ObjectMapper objectMapper) {
+    public NotificationConsumer(NotificationRepository notificationRepository) {
         this.notificationRepository = notificationRepository;
-        this.objectMapper = objectMapper;
     }
 
     @KafkaListener(topics = "txn-initiated", groupId = "notification-group")

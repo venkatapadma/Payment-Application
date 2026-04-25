@@ -1,6 +1,5 @@
 package com.paypal.transaction_service.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paypal.transaction_service.client.WalletClient;
 import com.paypal.transaction_service.dto.*;
 import com.paypal.transaction_service.entity.Transaction;
@@ -11,7 +10,6 @@ import com.paypal.transaction_service.repository.TransactionRepository;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -46,7 +44,7 @@ public class TransactionServiceImpl implements TransactionService {
         Transaction savedTransaction = transactionRepository.save(transaction);
         log.info("Saved transaction as pending: {}", savedTransaction);
 
-        TransactionResponse transactionResponse = null;
+        TransactionResponse transactionResponse;
         String holdReference = null;
         boolean captured = false;
 
@@ -132,7 +130,7 @@ public class TransactionServiceImpl implements TransactionService {
             savedTransaction = transactionRepository.save(savedTransaction);
             log.error("Saved transaction as failed: {}", savedTransaction);
             transactionResponse = TransactionResponse.from(savedTransaction);
-            return  transactionResponse;
+            return transactionResponse;
         } catch (Exception ex) {
             log.error("Wallet service failed with error:{}", ex.getMessage());
             if (Objects.nonNull(holdReference) && !captured) {
@@ -169,7 +167,7 @@ public class TransactionServiceImpl implements TransactionService {
             log.info("Transaction sent to Kafka");
         } catch (Exception e) {
             log.error("Error while sending transaction to Kafka: {}", e.getMessage());
-            e.printStackTrace();
+            throw new RuntimeException("Error while sending transaction to Kafka: " + e.getMessage());
         }
     }
 

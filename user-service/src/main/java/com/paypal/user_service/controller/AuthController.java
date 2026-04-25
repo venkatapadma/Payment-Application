@@ -1,5 +1,6 @@
 package com.paypal.user_service.controller;
 
+import com.paypal.user_service.dto.JWTTokenResponse;
 import com.paypal.user_service.dto.LoginRequest;
 import com.paypal.user_service.dto.SignUpRequest;
 import com.paypal.user_service.service.AuthService;
@@ -29,7 +30,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<JWTTokenResponse> login(@RequestBody LoginRequest loginRequest) {
 
         return ResponseEntity.ok(authService.authenticate(loginRequest));
     }

@@ -14,11 +14,11 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         return http
-            .csrf(ServerHttpSecurity.CsrfSpec::disable)
-            .authorizeExchange(ex -> ex
-                .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .anyExchange().permitAll()
-            )
-            .build();
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .authorizeExchange(ex -> ex
+                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .anyExchange().permitAll()
+                )
+                .build();
     }
 }

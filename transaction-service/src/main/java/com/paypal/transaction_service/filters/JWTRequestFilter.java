@@ -32,7 +32,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         final String authorizationHeader = request.getHeader("Authorization");
 
-        if (authorizationHeader!=null && authorizationHeader.startsWith("Bearer ")) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             log.info("validating token");
             String jwtToken = authorizationHeader.substring(7);
             if (!jwtToken.isBlank()) {
@@ -40,7 +40,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
                     Claims claims = jwtUtil.validateToken(jwtToken);
                     String userName = claims.getSubject();
                     String role = claims.get("role", String.class);
-                    if (userName!=null && !userName.isBlank()) {
+                    if (userName != null && !userName.isBlank()) {
                         UsernamePasswordAuthenticationToken authentication
                                 = new UsernamePasswordAuthenticationToken(userName,
                                 null,

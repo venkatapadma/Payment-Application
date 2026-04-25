@@ -6,12 +6,12 @@ spring:
     name: user-service
 
   datasource:
-        url: jdbc:h2:mem:userDB
-        username: sa
-        password:
-#    url: jdbc:mysql://localhost:3306/userDB
-#    username: root
-#    password: password123
+    url: jdbc:h2:mem:userDB
+    username: sa
+    password:
+  #    url: jdbc:mysql://localhost:3306/userDB
+  #    username: root
+  #    password: password123
 
   jpa:
     hibernate:
