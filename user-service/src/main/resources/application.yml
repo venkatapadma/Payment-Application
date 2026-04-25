@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+
+  datasource:
+        url: jdbc:h2:mem:userDB
+        username: sa
+        password:
+#    url: jdbc:mysql://localhost:3306/userDB
+#    username: root
+#    password: password123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+api:
+  gateway:
+    base-url: http://localhost:8080/user-service
+
+security:
+  jwt:
+    secret: "y5x8ZrQF0V6pN8yM7A6e5zT2B3C1XvKpLkU2nH9Jc0A="
