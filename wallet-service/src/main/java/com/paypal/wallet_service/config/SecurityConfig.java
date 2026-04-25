@@ -26,7 +26,8 @@ public class SecurityConfig {
                                 "/api/v1/wallets/**",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
-                                "/h2-console/**"
+                                "/h2-console/**",
+                                "/actuator/**"
                         ).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/wallets").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
