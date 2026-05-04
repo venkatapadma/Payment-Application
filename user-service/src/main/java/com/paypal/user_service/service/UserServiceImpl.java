@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
             WalletResponse wallet = walletClient.createWallet(walletRequest);
             log.info("Successfully created wallet for user {} - {}", savedUser.getId(), wallet.id());
         } catch (Exception ex) {
+            log.error("Wallet creation failed for user: " + savedUser.getId(), ex);
             userRepository.deleteById(savedUser.getId()); //rollback
             throw new RuntimeException("Wallet creation failed, user rolled back", ex);
         }
