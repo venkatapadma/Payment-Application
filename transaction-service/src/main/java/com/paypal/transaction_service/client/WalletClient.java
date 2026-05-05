@@ -7,24 +7,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "wallet-service", url = "http://localhost:8085/api/v1/wallets")
+@FeignClient(
+        name = "wallet-service",
+        url = "${wallet.service.url}"
+)
 public interface WalletClient {
 
-    @PostMapping("/debit")
+    @PostMapping("/api/v1/wallets/debit")
     WalletResponse debit(@RequestBody CreditRequest creditRequest);
 
-    @PostMapping("/credit")
+    @PostMapping("/api/v1/wallets/credit")
     WalletResponse credit(@RequestBody CreditRequest creditRequest);
 
-    @PostMapping("/hold")
+    @PostMapping("/api/v1/wallets/hold")
     HoldResponse placeHold(@RequestBody HoldRequest holdRequest);
 
-    @PostMapping("/capture")
+    @PostMapping("/api/v1/wallets/capture")
     WalletResponse captureHold(@RequestBody CaptureRequest captureRequest);
 
-    @PostMapping("/release/{holdReference}")
+    @PostMapping("/api/v1/wallets/release/{holdReference}")
     HoldResponse release(@PathVariable("holdReference") String holdReference);
 
-    @GetMapping("/{userId}")
+    @GetMapping("/api/v1/wallets/{userId}")
     WalletResponse getWallet(@PathVariable("userId") Long userId);
 }

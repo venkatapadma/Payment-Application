@@ -24,6 +24,7 @@ public class JWTAuthFilter implements GlobalFilter, Ordered {
     private static final List<String> PUBLIC_ENDPOINTS = List.of(
             "/user-service/api/v1/auth/**",
             "/swagger-ui/**",
+            "/actuator/**",
             "/**/v3/api-docs",
             "/v3/api-docs"
     );

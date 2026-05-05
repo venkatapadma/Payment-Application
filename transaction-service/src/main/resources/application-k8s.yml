@@ -8,6 +8,8 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
 
+wallet.service.url: "http://wallet-service:8085"
+
 api:
   gateway:
     base-url: http://api-gateway:80/transaction-service

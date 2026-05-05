@@ -7,7 +7,9 @@ spring:
 
 api:
   gateway:
-    base-url: http://api-gateway:80/user-service
+    base-url: http://api-gateway:8080/user-service
+
+wallet.service.url: "http://wallet-service:8085"
 
 security:
   jwt:
