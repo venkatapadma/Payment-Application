@@ -2,8 +2,8 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    active: local
+#  profiles:
+#    active: local
 
   application:
     name: api-gateway-service
@@ -18,4 +18,4 @@ spring:
 
 security:
   jwt:
-    secret: "y5x8ZrQF0V6pN8yM7A6e5zT2B3C1XvKpLkU2nH9Jc0A="
+    secret: ${JWT_SECRET:y5x8ZrQF0V6pN8yM7A6e5zT2B3C1XvKpLkU2nH9Jc0A=}

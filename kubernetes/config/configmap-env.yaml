@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-env
+  namespace: backend
+data:
+  # kv format
+  SPRING_PROFILES_ACTIVE: "k8s"
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:29092"
+  SPRING_DATA_REDIS_URL: "redis://redis:6379"

@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  config:
+    activate:
+      on-profile: k8s
   application:
     name: api-gateway-service
 
@@ -108,7 +111,3 @@ logging:
     org.springframework.cloud.gateway.filter.ratelimit: DEBUG
     reactor.netty.http.client: DEBUG
     org.springframework.web.reactive: DEBUG
-
-#security:
-#  jwt:
-#    secret: ${JWT_SECRET}

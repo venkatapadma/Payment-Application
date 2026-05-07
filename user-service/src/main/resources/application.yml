@@ -31,4 +31,4 @@ wallet.service.url: "http://localhost:8085"
 
 security:
   jwt:
-    secret: "y5x8ZrQF0V6pN8yM7A6e5zT2B3C1XvKpLkU2nH9Jc0A="
+    secret: ${JWT_SECRET:y5x8ZrQF0V6pN8yM7A6e5zT2B3C1XvKpLkU2nH9Jc0A=}

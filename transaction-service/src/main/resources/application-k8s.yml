@@ -5,9 +5,6 @@ spring:
   application:
     name: transaction-service
 
-  kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
-
 wallet.service.url: "http://wallet-service:8085"
 
 api:
