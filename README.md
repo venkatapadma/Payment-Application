@@ -140,3 +140,5 @@ Lombok
 ✅ API documentation using Swagger
 
 ✅ Java 21 & Spring Boot 4 optimized
+
+✅ Docker and Kubernetees
